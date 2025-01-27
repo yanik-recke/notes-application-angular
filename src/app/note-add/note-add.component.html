@@ -1,0 +1,38 @@
+<div class="title-container">
+    <h3>Create new note</h3>
+    <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>
+</div>
+<mat-divider></mat-divider>
+<form>
+    <div class="add-grid-container">
+        <div class="title">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput [formControl]="titleControl">
+            </mat-form-field>
+        </div>
+        <div class="desc">
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input matInput [formControl]="descriptionControl">
+            </mat-form-field>
+        </div>
+        <div class="created">
+            <mat-form-field>
+                <mat-label>Created at</mat-label>
+                <input matInput [formControl]="createdAtControl">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <div matTooltip="Please log in" [matTooltipDisabled]="keycloak.isLoggedIn()">
+            <button color="primary" mat-raised-button (click)="handleSaveClick()"
+                [disabled]="!keycloak.isLoggedIn()">Save</button>
+        </div>
+        <div matTooltip="Please log in" [matTooltipDisabled]="keycloak.isLoggedIn()">
+            <button color="warn" mat-raised-button (click)="handleResetClick()"
+                [disabled]="!keycloak.isLoggedIn()">Reset</button>
+        </div>
+    </div>
+</form>

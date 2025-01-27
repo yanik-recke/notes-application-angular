@@ -1,0 +1,46 @@
+<div class="title-container">
+    <h3>Edit note</h3>
+    <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon" fontIcon="check"></mat-icon>
+</div>
+<mat-divider></mat-divider>
+<form>
+    <div class="info-grid-container">
+        <div class="title">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput [disabled]="notesService.selectedNote === null"
+                    [value]="notesService.selectedNote?.title" name="title" (change)="handleTitleChange($event)">
+            </mat-form-field>
+        </div>
+        <div class="desc">
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input matInput [disabled]="notesService.selectedNote === null"
+                    [value]="notesService.selectedNote?.description" name="desc" (change)="handleDescChange($event)">
+            </mat-form-field>
+        </div>
+        <div class="created">
+            <mat-form-field>
+                <mat-label>Created at</mat-label>
+                <input matInput [disabled]="notesService.selectedNote === null"
+                    [value]="notesService.selectedNote?.createdAt" name="createdAt"
+                    (change)="handleCreatedAtChange($event)">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <div matTooltip="Please log in" [matTooltipDisabled]="keycloak.isLoggedIn()">
+            <button color="primary" [disabled]="!keycloak.isLoggedIn()" mat-raised-button
+                (click)="notesService.addNote()">Save</button>
+        </div>
+        <div matTooltip="Please log in" [matTooltipDisabled]="keycloak.isLoggedIn()">
+            <button color="tertiary" [disabled]="!keycloak.isLoggedIn()" mat-raised-button
+                (click)="notesService.resetChanges()">Reset</button>
+        </div>
+        <div matTooltip="Please log in" [matTooltipDisabled]="keycloak.isLoggedIn()">
+            <button color="warn" [disabled]="!keycloak.isLoggedIn()" mat-raised-button
+                (click)="notesService.deleteNote()">Delete</button>
+        </div>
+    </div>
+</form>

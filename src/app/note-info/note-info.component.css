@@ -1,0 +1,32 @@
+.info-grid-container {
+    margin-top: 25px;
+    display: grid;
+    grid-template-areas:
+        "title empty"
+        "desc created";
+    gap: 10px;
+}
+
+.title {
+    grid-area: title;
+}
+
+.desc {
+    grid-area: desc;
+}
+
+.created {
+    grid-area: created;
+}
+
+.button-container {
+    gap: 15px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+mat-form-field {
+    width: 100%;
+}

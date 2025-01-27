@@ -1,0 +1,41 @@
+.grid-container {
+    margin: 50px auto;
+    max-width: 80vw;
+    width: 80vw;
+    gap: 10px;
+    display: grid;
+    grid-template-areas:
+        "notes notes notes notes notes notes notes notes notes notes notes notes"
+        "pos1 pos1 pos1 pos1 pos1 pos1 pos1 pos1 pos1 pos1 pos1 pos1"
+        "pos2 pos2 pos2 pos2 pos2 pos2 pos2 pos2 pos2 pos2 pos2 pos2"
+        "pos3 pos3 pos3 pos3 pos3 pos3 pos3 pos3 pos3 pos3 pos3 pos3";
+}
+
+.notes {
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    overflow-y: auto;
+    grid-area: notes;
+}
+
+.pos1 {
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    grid-area: pos1;
+}
+
+.pos2 {
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    grid-area: pos2;
+}
+
+.pos3 {
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    grid-area: pos3;
+}

@@ -1,0 +1,31 @@
+<main class="main-container">
+
+  @if (!keycloak.isInitiated()) {
+  <mat-spinner></mat-spinner>
+  } @else {
+  <header>
+    <svg id="svg2" width="40" height="40" viewBox="0 0 187.90257 251.2" xmlns="http://www.w3.org/2000/svg"
+      xmlns:svg="http://www.w3.org/2000/svg">
+      <defs id="defs6" />
+      <g id="g8">
+        <path fill="#00509b" fillOpacity="1" strokeWidth="5.43874"
+          d="M 0,251.2 62.742081,0 H 104.4811 L 41.690462,251.2 Z" id="path950" />
+        <path fill="#00509b" fillOpacity="1" strokeWidth="5.43874"
+          d="m 146.28272,0 h 41.61986 L 125.20312,251.2 H 83.648437 Z" id="path3083" />
+      </g>
+    </svg>
+    <mat-checkbox (change)="handleCheckboxChange($event)">Enable 3s delay for backend requests</mat-checkbox>
+    @if (keycloak.isLoggedIn()) {
+    <button color="warn" mat-raised-button class="login-button" (click)="keycloak.logout()">Sign out</button>
+    } @else {
+    <button color="primary" mat-raised-button class="login-button" (click)="keycloak.redirectToLoginPage()">Sign
+      in</button>
+    }
+  </header>
+
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+  }
+
+</main>
